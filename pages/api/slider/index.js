@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-var projectModel =  require("./models")
+var sliderModel =  require("./models")
 const uri = process.env.MONGO_URI;
 console.log(uri)
 mongoose.connect(uri,
@@ -10,7 +10,7 @@ mongoose.connect(uri,
 );
 const db = mongoose.connection;
 const getAllData = async(res)=>{
-  projectModel.find({},(err, result)=>{
+  sliderModel.find({},(err, result)=>{
     if (err) {
       res.send("Bad request")
       res.status(400)

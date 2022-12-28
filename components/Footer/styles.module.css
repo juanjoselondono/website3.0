@@ -1,0 +1,22 @@
+.container{
+    color: white;
+    text-align: center;
+}
+.text{
+    color: white;
+    text-align: center;
+}
+.copyright{
+    color:gray;
+    font-size: 0.8em;
+}
+.icons_container{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 5%;
+}
+.col{
+    justify-self: center;
+}

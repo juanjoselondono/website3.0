@@ -1,0 +1,44 @@
+.card{
+    color: white;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    font-weight: 600;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.link{
+    color: rgb(66, 148, 255);
+}
+.hello{
+    font-size: 2rem;
+}
+.profilePhoto{
+    height: 20vh;
+    width: 20vh;
+    object-fit: cover;
+    border-radius: 10vh;
+}
+.card_body{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;  
+    justify-items: center;
+    align-items: center; 
+}
+.infoContainer{
+    background-color: transparent;
+}
+.spotify{
+    font-size: 0.9rem;
+    color: gray;
+}
+
+@media only screen and (max-width: 600px) {
+    .card_body{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;    
+    }
+  }

@@ -34,7 +34,7 @@ const data = {
       "random": false,
       "anim": {
         "enable": false,
-        "speed": 1,
+        "speed": 0.8,
         "opacity_min": 0.1,
         "sync": false
       }
@@ -58,7 +58,7 @@ const data = {
     },
     "move": {
       "enable": true,
-      "speed": 3,
+      "speed": 2,
       "direction": "none",
       "random": false,
       "straight": false,
@@ -71,45 +71,7 @@ const data = {
       }
     }
   },
-  "interactivity": {
-    "detect_on": "canvas",
-    "events": {
-      "onhover": {
-        "enable": true,
-        "mode": "repulse"
-      },
-      "onclick": {
-        "enable": true,
-        "mode": "push"
-      },
-      "resize": true
-    },
-    "modes": {
-      "grab": {
-        "distance": 400,
-        "line_linked": {
-          "opacity": 1
-        }
-      },
-      "bubble": {
-        "distance": 400,
-        "size": 40,
-        "duration": 2,
-        "opacity": 8,
-        "speed": 3
-      },
-      "repulse": {
-        "distance": 200,
-        "duration": 0.4
-      },
-      "push": {
-        "particles_nb": 4
-      },
-      "remove": {
-        "particles_nb": 2
-      }
-    }
-  },
+  
   "retina_detect": true,
   "background": {
     "color": "#111",
@@ -117,6 +79,8 @@ const data = {
     "position": "50% 50%",
     "repeat": "no-repeat",
     "size": "cover"
-}
+},
+"retina_detect": true
+
 }
 export default data;

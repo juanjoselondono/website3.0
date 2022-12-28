@@ -1,27 +1,27 @@
-import React from 'react'
-import styles from './styles.module.css'
-const navbar = () => {
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+
+function navbar() {
   return (
-    <nav className = {styles} className="navbar bg-transparent navbar-dark navbar-light navbar-expand-lg">
-      <a className="navbar-brand" href="/">Juan José Londoño David</a>
-      <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul className="navbar-nav mr-auto">
-          <li className="nav-item active">
-            <a className="nav-link" href="/">Home</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/projects">Projects</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/blog">Blog</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  )
+    <Navbar className='avbar bg-transparent navbar-dark navbar-light navbar-expand-lg' bg="transparent"  expand="lg">
+      <Container>
+        <Navbar.Brand href="/">Juan José Londoño David</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/projects">Projects</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
 }
 
-export default navbar
+export default navbar;
+
+
+
+//n

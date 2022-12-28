@@ -1,31 +1,38 @@
-import React from 'react'
-
-const slider = () => {
+import Carousel from 'react-bootstrap/Carousel';
+import styles from './styles.module.css'
+import {useEffect, useState} from 'react'
+import axios from 'axios'
+function IndividualIntervalsExample() {
+  const [sliderList, setSliderList] = useState([{
+    url: '/assets/images/black.png'
+  }])
+  const getImagesUrl = '/api/slider'
+  function getImages(){
+    axios
+    .get(getImagesUrl)
+    .then((data) => {
+      console.log(data.data)
+      setSliderList(data.data)
+    })
+  }
+  useEffect(()=>{
+    getImages()
+  },[])
   return (
-    <div>
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="..." alt="First slide"/>
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Second slide"/>
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Third slide"/>
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-    </div>
+    <Carousel>
+      {sliderList.map((element) => (
+        <Carousel.Item key = {element.url+2}interval={3000}>
+          <img
+            className={styles.image}
+            src={element.url}
+            alt="Slider Image"
+            key = {element.url+1}
+          />
+        </Carousel.Item>
+      ))}
+    </Carousel>
+
   )
 }
-
-export default slider
+      
+export default IndividualIntervalsExample;
