@@ -15,6 +15,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error'))
 const getDataById = async(target, res) =>{
   projectModel.find({_id: target},(err, result)=>{
     if (err) {
+      console.log(err)
       res.status(400).send({message: 'Bad Request'})
     }
     else{res.status(200).send(result)}

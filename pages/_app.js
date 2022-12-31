@@ -8,7 +8,6 @@ import { loadFull } from "tsparticles";
 import data from "../particles"
 import Footer  from "components/Footer/footer";
 import { useRouter } from 'next/router'
-
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
   const particlesInit = async (main) => {
@@ -27,7 +26,7 @@ function MyApp({ Component, pageProps }) {
         />
         <div className="content">
           <Navbar></Navbar>
-          <Component  {...pageProps} />
+          <Component testProp= "hello"  {...pageProps} />
           {router.pathname !== '/panel' && <Footer></Footer>}
         </div>
         <Script

@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
-import Render from '@/components/templates/render.js'
-import Software from '@/components/templates/software.js'
+import Render from '@/components/formTemplates/render.js'
+import Software from '@/components/formTemplates/software.js'
 
 function create() {
   const [show, setShow] = useState(false);

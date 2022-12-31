@@ -1,0 +1,55 @@
+.container{
+    font-size: 2rem;
+}
+.wallpaper{
+    width: 100%;
+    height: 40vh;
+    object-fit: cover;
+}
+.title{
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+}
+.titleContainer{
+    height: 40vh;
+    width: 100%;
+    background-size: cover;
+}
+.infoContainer{
+    font-size: 1rem;
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 5%;
+    justify-items: center;
+    align-items: center;
+}
+.description{
+    text-align: center;
+    justify-self: center;
+    color: white;
+    font-size: 1rem;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.carouselImages{
+    width: 100%;
+    height: 40vh;
+    object-fit: cover;
+}
+@media (max-width:600px)  {
+    .infoContainer{
+        grid-template-columns: 1fr;
+    }
+    .content{
+        margin-top: 10%;
+    }
+} 

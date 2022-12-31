@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 var sliderModel =  require("./models")
 const uri = process.env.MONGO_URI;
-console.log(uri)
 mongoose.connect(uri,
   {
     useNewUrlParser: true,
