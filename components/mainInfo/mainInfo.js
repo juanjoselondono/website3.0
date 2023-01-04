@@ -5,7 +5,7 @@ const mainInfo = () => {
   return (
     <Card className={styles.card}>
         <Card.Body className={styles.card_body}>
-            <Card.Img className={styles.profilePhoto} variant="left" src="/assets/images/profile.jpg" />
+            <Card.Img className={styles.profilePhoto} variant="left" src="/assets/images/profile.jpeg" />
             <div className={styles.infoContainer}>
                 <Card.Title className={styles.hello}>Hello! I am Juan Londoño</Card.Title>
                 <Card.Text>

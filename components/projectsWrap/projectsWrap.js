@@ -7,24 +7,9 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Spinner from 'react-bootstrap/Spinner';
 import Title from '@/components/decorative/coolTitle/coolTitle'
-const projectsWrap = () => {
-  const projectsURL = "/api/projects"
-  const [projectList, setProjectList] = useState([])
-   function setProjectWrapper(){
-    return new Promise((resolve, reject)=>{
-        axios
-        .get(projectsURL)
-        .then((data)=>{
-            var sortedArray = data.data.reverse().slice(0,3)
-            setProjectList(sortedArray)
-            console.log(sortedArray)
-            resolve()
-        })
-    })
-  }
+const projectsWrap = ({projectList}) => {
   useEffect(()=>{
     AOS.init();
-    setProjectWrapper()
   }, [])
   return (
     <div data-aos="fade-up" className={styles.superContainer}>
