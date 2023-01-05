@@ -6,17 +6,16 @@ import TechStack from '@/components/techStack/techStack'
 import Head from "next/head";
 import ProjectsWrap from '@/components/projectsWrap/projectsWrap'
 import axios from 'axios'
-
+import Spinner from 'react-bootstrap/Spinner';
 const index = () => {
-  const [sliderList, setSliderList] = useState([])
-  const [projects, setProjectList] = useState([])
+  const [sliderList, setSliderList] = useState()
+  const [projects, setProjectList] = useState()
   const projectsURL = "/api/projects"
   const getImagesUrl = '/api/slider'
   function getImages(){
     axios
     .get(getImagesUrl)
     .then((data) => {
-      console.log(data.data)
       setSliderList(data.data)
     })
   }
@@ -27,19 +26,18 @@ const index = () => {
         .then((data)=>{
             var sortedArray = data.data.reverse().slice(0,3)
             setProjectList(sortedArray)
-            console.log(sortedArray)
             resolve()
         })
     })
   }
   useEffect(()=>{
-    setProjectWrapper()
     getImages()
+    setProjectWrapper()
   },[])
   return (
     <div>
       {
-        projects !=[] && sliderList !=[] &&
+        sliderList != undefined && projects != undefined &&
         <div>
           <Head>
             <title>Juan José Londoño David</title>
@@ -53,8 +51,15 @@ const index = () => {
         </div>
       }
       {
-        projects ==[] && sliderList ==[] &&
-        <h3 styles = {{color:'white',textAlign:'center'}}>Loading ...</h3>
+        sliderList == undefined && projects == undefined &&
+        <div style={{display:'flex', flexDirection:'column', justifyItems:'center', alignItems:'center', marginTop:'20%', marginBottom:'20%'}}>
+          <Spinner style={{
+            justifySelf:'center',
+            textAlign:'center',
+            width:'30vh',
+            height:'30vh'
+          }} animation="border" variant="light" />
+        </div>
       }
     </div>
   )

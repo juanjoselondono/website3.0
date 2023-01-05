@@ -7,7 +7,7 @@ const mainInfo = () => {
         <Card.Body className={styles.card_body}>
             <Card.Img className={styles.profilePhoto} variant="left" src="/assets/images/profile.jpeg" />
             <div className={styles.infoContainer}>
-                <Card.Title className={styles.hello}>Hello! I am Juan Londoño</Card.Title>
+                <Card.Title className={styles.hello}><h1>Hello! I am Juan Londoño</h1></Card.Title>
                 <Card.Text>
                     I am a colombian mechatronic engineering student at <a className={styles.link} href='https://www.eia.edu.co/'>Universidad EIA</a> who loves to share Ideas with others. Send me your ideas and thoughts to juanjoselondonodavid@gmail.com.
                 </Card.Text>

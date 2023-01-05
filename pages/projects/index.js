@@ -14,12 +14,16 @@ const projects = () => {
         .get(projectsURL)
         .then((data)=>{
             var sortedArray = data.data.reverse().slice(0,3)
+            console.log(sortedArray)
             setProjectList(sortedArray)
             resolve()
         })
     })
   }
   
+  function sortArrayByName(array) {
+    return array.sort((a, b) => a.name.localeCompare(b.name));
+  }
   function convertDateToString(date){
     var str_date = new Date(date)
     var concat_date = `${str_date.getDay()}/${str_date.getMonth()}/${str_date.getFullYear()}`
@@ -28,12 +32,15 @@ const projects = () => {
   function handleSort(){
     if(sort == 1){
       console.log('hi')
+      setSort(1)
     }
     else if(sort == 2){
-      setProjectList(projectList.reverse())
+      setProjectList(projectList.reverse(projectList))
+      setSort(2)
     }
     else if (sort == 3){
-      console.log('pye')
+      setProjectList(sortArrayByName(projectList))
+      setSort(3)
     }
   }
   useEffect(()=>{

@@ -5,8 +5,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import Software from '@/components/templates/software'
 import Render from '@/components/templates/render'
 const Project = () => {
-  const [project, setProject] = useState([])
-  const [name, setName] = useState('')
+  const [project, setProject] = useState()
   var router = useRouter()
   var _id = router.query.id
   const projectsURL = "/api/projects"
