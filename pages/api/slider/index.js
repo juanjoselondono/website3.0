@@ -11,9 +11,7 @@ const db = mongoose.connection;
 const getAllData = async(res)=>{
   sliderModel.find({},(err, result)=>{
     if (err) {
-      res.send("Bad request")
       res.status(400)
-      return handleError(err)
     }
     else{
       res.send(result)

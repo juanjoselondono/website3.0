@@ -4,6 +4,7 @@ import axios from 'axios'
 import Spinner from 'react-bootstrap/Spinner';
 import Software from '@/components/templates/software'
 import Render from '@/components/templates/render'
+import Loader from '@/components/Loader' 
 const Project = () => {
   const [project, setProject] = useState()
   var router = useRouter()
@@ -42,14 +43,7 @@ const Project = () => {
       }
       {
         project == undefined &&
-        <div style={{display:'flex', flexDirection:'column', justifyItems:'center', alignItems:'center', marginTop:'20%', marginBottom:'20%'}}>
-          <Spinner style={{
-            justifySelf:'center',
-            textAlign:'center',
-            width:'30vh',
-            height:'30vh'
-          }} animation="border" variant="light" />
-        </div>
+        <Loader></Loader>
       }
     </div>
   )
