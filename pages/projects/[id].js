@@ -4,6 +4,7 @@ import axios from 'axios'
 import Spinner from 'react-bootstrap/Spinner';
 import Software from '@/components/templates/software'
 import Render from '@/components/templates/render'
+import Hardware from '@/components/templates/hardware'
 import Loader from '@/components/Loader' 
 const Project = () => {
   const [project, setProject] = useState()
@@ -40,6 +41,10 @@ const Project = () => {
       {
         project != undefined && project.category == 'render' && 
         <Render data = {project}></Render>
+      }
+      {
+        project != undefined && project.category == 'hardware' && 
+        <Hardware data = {project}></Hardware>
       }
       {
         project == undefined &&

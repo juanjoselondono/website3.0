@@ -13,7 +13,8 @@ const projects = () => {
         axios
         .get(projectsURL)
         .then((data)=>{
-            var sortedArray = data.data.reverse().slice(0,3)
+          //showing the first 10 projects for rendering porpouses
+            var sortedArray = data.data.reverse().slice(0,10)
             console.log(sortedArray)
             setProjectList(sortedArray)
             resolve()

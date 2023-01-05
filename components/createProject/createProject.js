@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import Render from '@/components/formTemplates/render.js'
 import Software from '@/components/formTemplates/software.js'
-
+import Hardware from '@/components/formTemplates/hardware.js'
 function create() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -58,10 +58,8 @@ function create() {
             >
               <option>Open this select menu</option>
               <option value="1">Software</option>
-              <option value="2">University Project</option>
-              <option value="3">Hardware</option>
-              <option value="4">Presentation</option>
-              <option value="5">Render</option>
+              <option value="2">Hardware Project</option>
+              <option value="3">Render</option>
             </Form.Select>
           </div>
         <div className='projectForm' style = {{margin:'10px'}}>
@@ -70,24 +68,15 @@ function create() {
                 plantilla == 1 &&
                 <Software name = {projectName}></Software>
               }
-              {/* University Project */}
-              {
-                plantilla == 2 &&
-                <p>Hello</p>
-              }
               {/*Hardware*/}
               {
-                plantilla == 3 &&
-                <p>Hello world</p>
+                plantilla == 2 &&
+                <Hardware name = {projectName}></Hardware>
               }
               {/* Presentation */}
-              {
-                plantilla == 4 &&
-                <p>Hello world</p>
-              }
               {/* Render */}
               {
-               plantilla == 5 &&
+               plantilla == 3 &&
                 <Render name ={projectName}></Render>
               }
         </div>
