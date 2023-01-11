@@ -8,6 +8,12 @@ const projects = () => {
   const [projectList, setProjectList] = useState([])
   const [sort, setSort] = useState()
   const projectsURL = "/api/projects"
+  function sortByDateAsc(arr) {
+    return arr.sort((a, b) => new Date(b.Date) - new Date(a.Date));
+  }
+  function sortByDateDesc(arr) {
+    return arr.sort((a, b) => new Date(a.Date) - new Date(b.Date));
+  }
   function setProjectWrapper(){
     return new Promise((resolve, reject)=>{
         axios
@@ -16,7 +22,7 @@ const projects = () => {
           //showing the first 10 projects for rendering porpouses
             var sortedArray = data.data.reverse().slice(0,10)
             console.log(sortedArray)
-            setProjectList(sortedArray)
+            setProjectList(sortByDateAsc(sortedArray))
             resolve()
         })
     })
@@ -32,11 +38,11 @@ const projects = () => {
   }
   function handleSort(){
     if(sort == 1){
-      console.log('hi')
+      setProjectList(sortByDateAsc(projectList))
       setSort(1)
     }
     else if(sort == 2){
-      setProjectList(projectList.reverse(projectList))
+      setProjectList(sortByDateDesc(projectList))
       setSort(2)
     }
     else if (sort == 3){

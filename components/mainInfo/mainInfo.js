@@ -9,7 +9,7 @@ const mainInfo = () => {
             <div className={styles.infoContainer}>
                 <Card.Title className={styles.hello}><h1>Hello! I am Juan Londoño</h1></Card.Title>
                 <Card.Text>
-                    I am a colombian mechatronic engineering student at <a className={styles.link} href='https://www.eia.edu.co/'>Universidad EIA</a> who loves to share Ideas with others. Send me your ideas and thoughts to juanjoselondonodavid@gmail.com.
+                    I am a colombian mechatronic engineering student at <a className={styles.link} href='https://www.eia.edu.co/'>Universidad EIA</a> who loves to share Ideas with others, I'm curious about new technologies and solving issues that impact our communities. Send me your ideas and thoughts to juanjoselondonodavid@gmail.com.
                 </Card.Text>
                 <Card.Text className={styles.spotify}>
                         I also enjoy music considerably. Check out my <a className={styles.link} href='https://open.spotify.com/artist/1lBJ8VUYZ0xpTBIkHV93Nx?si=0QvA9iUIQiq6fgpMV5_SmQ'>Spotify Profile</a> where I publish some of my songs

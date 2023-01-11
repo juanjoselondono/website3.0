@@ -8,6 +8,7 @@ import 'aos/dist/aos.css';
 import Spinner from 'react-bootstrap/Spinner';
 import Title from '@/components/decorative/coolTitle/coolTitle'
 const projectsWrap = ({projectList}) => {
+
   useEffect(()=>{
     AOS.init();
   }, [])
@@ -23,7 +24,7 @@ const projectsWrap = ({projectList}) => {
         projectList !=[] &&
         <div>
         <Title className={styles.title} title = "Checkout some of my projects" fontSize= "2rem"></Title>
-        <Carousel className={styles.container} slide={false}> 
+        <Carousel variant="dark" className={styles.container} fade> 
             {projectList.map((element) => (
               <Carousel.Item key = {element.name+2}interval={4000}>
                 <a key = {element.name+12} href = {`projects/${element._id}`}>
@@ -33,10 +34,10 @@ const projectsWrap = ({projectList}) => {
                   alt={element.name}
                   key = {element.name+1}
                   />
-                  </a>
                   <Carousel.Caption key ={element.name+2}>
                       <p className={styles.caption} key = {element.name+3}>{element.name}</p>
                   </Carousel.Caption>
+                  </a>
               </Carousel.Item>
             ))}
             </Carousel>

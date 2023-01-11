@@ -11,6 +11,9 @@ const index = () => {
   const [projects, setProjectList] = useState()
   const projectsURL = "/api/projects"
   const getImagesUrl = '/api/slider'
+  function sortByDateAsc(arr) {
+    return arr.sort((a, b) => new Date(b.Date) - new Date(a.Date));
+  }
   function getImages(){
     axios
     .get(getImagesUrl)
@@ -23,8 +26,8 @@ const index = () => {
         axios
         .get(projectsURL)
         .then((data)=>{
-            var sortedArray = data.data.reverse().slice(0,3)
-            setProjectList(sortedArray)
+            var sortedArray = sortByDateAsc(data.data)
+            setProjectList(sortedArray.slice(0,3))
             resolve()
         })
     })
