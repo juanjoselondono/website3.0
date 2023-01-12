@@ -6,36 +6,44 @@ import Head from "next/head";
 import ProjectsWrap from '@/components/projectsWrap/projectsWrap'
 import axios from 'axios'
 import Loader from '@/components/Loader' 
-const index = () => {
-  const [sliderList, setSliderList] = useState()
-  const [projects, setProjectList] = useState()
+function sortByDateAsc(arr) {
+  return arr.sort((a, b) => new Date(b.Date) - new Date(a.Date));
+}
+async function getContent(){
+  const ApiUrl = 'https://thejuanlondono.vercel.app/api/projects'
+  return new Promise((resolve, reject)=>{
+      axios.get(ApiUrl, {
+        headers:{ "Accept-Encoding": "gzip,deflate,compress" } 
+      }).then((response) => {
+          console.log(response)
+          resolve(sortByDateAsc(response.data).slice(0,3))
+      });
+  })
+}
+async function getSlider(){
+  const ApiUrl = 'https://thejuanlondono.vercel.app/api/slider'
+  return new Promise((resolve, reject)=>{
+      axios.get(ApiUrl, {
+        headers:{ "Accept-Encoding": "gzip,deflate,compress" } 
+      }).then((response) => {
+          console.log(response)
+          resolve(response.data)
+      });
+  })
+}
+export const getServerSideProps = async()=>{
+  const res = await getContent()
+  const slider = await getSlider()
+  return {
+      props:{
+          projects: res,
+          sliderList: slider
+      }
+  }
+}
+const index = ({projects, sliderList}) => {
   const projectsURL = "/api/projects"
   const getImagesUrl = '/api/slider'
-  function sortByDateAsc(arr) {
-    return arr.sort((a, b) => new Date(b.Date) - new Date(a.Date));
-  }
-  function getImages(){
-    axios
-    .get(getImagesUrl)
-    .then((data) => {
-      setSliderList(data.data)
-    })
-  }
-  function setProjectWrapper(){
-    return new Promise((resolve, reject)=>{
-        axios
-        .get(projectsURL)
-        .then((data)=>{
-            var sortedArray = sortByDateAsc(data.data)
-            setProjectList(sortedArray.slice(0,3))
-            resolve()
-        })
-    })
-  }
-  useEffect(()=>{
-    getImages()
-    setProjectWrapper()
-  },[])
   return (
     <div>
       {

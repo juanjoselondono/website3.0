@@ -4,30 +4,36 @@ import axios from 'axios'
 import styles from './styles.module.css'
 import Form from 'react-bootstrap/Form';
 import Title from '@/components/decorative/coolTitle/coolTitle'
-const projects = () => {
-  const [projectList, setProjectList] = useState([])
+function sortByDateAsc(arr) {
+  return arr.sort((a, b) => new Date(b.Date) - new Date(a.Date));
+}
+async function getContent(){
+  const ApiUrl = 'https://thejuanlondono.vercel.app/api/projects'
+  return new Promise((resolve, reject)=>{
+      axios.get(ApiUrl, {
+        headers:{ "Accept-Encoding": "gzip,deflate,compress" } 
+      }).then((response) => {
+          resolve(sortByDateAsc(response.data))
+      });
+  })
+}
+export const getServerSideProps = async()=>{
+  const res = await getContent()
+  return {
+      props:{
+          projects: res,
+      }
+  }
+}
+const projects = ({projects}) => {
+  const [projectList, setProjectList] = useState(projects)
   const [sort, setSort] = useState()
-  const projectsURL = "/api/projects"
   function sortByDateAsc(arr) {
     return arr.sort((a, b) => new Date(b.Date) - new Date(a.Date));
   }
   function sortByDateDesc(arr) {
     return arr.sort((a, b) => new Date(a.Date) - new Date(b.Date));
   }
-  function setProjectWrapper(){
-    return new Promise((resolve, reject)=>{
-        axios
-        .get(projectsURL)
-        .then((data)=>{
-          //showing the first 10 projects for rendering porpouses
-            var sortedArray = data.data.reverse().slice(0,10)
-            console.log(sortedArray)
-            setProjectList(sortByDateAsc(sortedArray))
-            resolve()
-        })
-    })
-  }
-  
   function sortArrayByName(array) {
     return array.sort((a, b) => a.name.localeCompare(b.name));
   }
@@ -51,9 +57,7 @@ const projects = () => {
     }
   }
   useEffect(()=>{
-    setProjectWrapper().then(()=>{
-      handleSort()
-    })
+    handleSort()
   }, [sort])
   return (
     <div>
