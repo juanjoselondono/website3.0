@@ -17,7 +17,7 @@ async function getContent(){
       });
   })
 }
-export const getServerSideProps = async()=>{
+export const getStaticProps = async()=>{
   const res = await getContent()
   return {
       props:{

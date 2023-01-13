@@ -40,8 +40,6 @@ export const getStaticProps = async()=>{
   }
 }
 const index = ({projects, sliderList}) => {
-  const projectsURL = "/api/projects"
-  const getImagesUrl = '/api/slider'
   return (
     <div>
       {
