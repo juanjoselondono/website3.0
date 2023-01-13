@@ -17,9 +17,9 @@ const teckStack = () => {
         <img className={styles.icon} alt = "vue" src= '/assets/techStack/vue.png'></img>
         <img className={styles.mediumIcon} alt = "node"src= '/assets/techStack/node.png'></img>
         <img className={styles.icon} alt = "react" src= '/assets/techStack/react.png'></img>
-        <img className={styles.biggerIcon} alt="tensorflow"src= '/assets/techStack/tensorflow.png'></img>
+        <img className={styles.mediumIcon} alt="tensorflow"src= '/assets/techStack/next.png'></img>
         <img className={styles.icon} alt="arduino"src= '/assets/techStack/arduino.png'></img>
-        <img className={styles.biggerIcon} alt="mongo"src= '/assets/techStack/numpy.png'></img>
+        <img className={styles.mediumIcon} alt="mongo"src= '/assets/techStack/mongo.png'></img>
       </div>
     </div>
   )

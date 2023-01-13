@@ -8,6 +8,8 @@ import { loadFull } from "tsparticles";
 import data from "../particles"
 import Footer  from "components/Footer/footer";
 import { useRouter } from 'next/router'
+import { Analytics } from '@vercel/analytics/react';
+
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
   const particlesInit = async (main) => {
@@ -27,6 +29,7 @@ function MyApp({ Component, pageProps }) {
         <div className="content">
           <Navbar></Navbar>
           <Component testProp= "hello"  {...pageProps} />
+          <Analytics />
           {router.pathname !== '/panel' && <Footer></Footer>}
         </div>
         <Script

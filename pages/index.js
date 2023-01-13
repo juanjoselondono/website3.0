@@ -15,7 +15,6 @@ async function getContent(){
       axios.get(ApiUrl, {
         headers:{ "Accept-Encoding": "gzip,deflate,compress" } 
       }).then((response) => {
-          console.log(response)
           resolve(sortByDateAsc(response.data).slice(0,3))
       });
   })
@@ -26,12 +25,11 @@ async function getSlider(){
       axios.get(ApiUrl, {
         headers:{ "Accept-Encoding": "gzip,deflate,compress" } 
       }).then((response) => {
-          console.log(response)
           resolve(response.data)
       });
   })
 }
-export const getServerSideProps = async()=>{
+export const getStaticProps = async()=>{
   const res = await getContent()
   const slider = await getSlider()
   return {

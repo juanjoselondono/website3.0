@@ -1,5 +1,6 @@
 import Carousel from 'react-bootstrap/Carousel';
 import styles from './styles.module.css'
+import Image from 'next/image'
 function IndividualIntervalsExample(props) {
   return (
     <Carousel>
