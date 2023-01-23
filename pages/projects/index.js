@@ -58,6 +58,7 @@ const projects = ({projects}) => {
   }
   useEffect(()=>{
     handleSort()
+    console.log(projectList)
   }, [sort])
   return (
     <div>
